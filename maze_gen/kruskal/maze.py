@@ -1,46 +1,9 @@
 import random
 from collections import defaultdict
-from dataclasses import dataclass
 
 from maze_gen import Maze
-
-
-class Cell:
-    def __init__(self, x: int, y: int):
-        self.x = x
-        self.y = y
-        self.cell_set: set[Cell] = {self}
-
-    @property
-    def coor(self) -> tuple[int, int]:
-        return self.x, self.y
-
-    def __hash__(self) -> int:
-        return hash(self.coor)
-
-    def __repr__(self):
-        return f"Cell({self.x}, {self.y})"
-
-    def __str__(self):
-        return " "
-
-
-@dataclass
-class Wall:
-    cell_a: Cell
-    cell_b: Cell
-    row_n: int
-    broken: bool = False
-
-    @property
-    def linking_cells(self) -> tuple[Cell, Cell]:
-        return self.cell_a, self.cell_b
-
-    def brake(self):
-        self.broken = True
-
-    def __str__(self):
-        return " " if self.broken else "#"
+from maze_gen.kruskal.cell import Cell
+from maze_gen.kruskal.wall import Wall
 
 
 class KruskalMaze(Maze):

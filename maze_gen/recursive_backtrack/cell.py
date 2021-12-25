@@ -41,7 +41,7 @@ class Cell:
     @property
     def mid_row(self) -> str:
         col_skip = self.x == 0
-        return "".join([self.print_wall(W) * col_skip, " ", self.print_wall(E)])
+        return "".join([self.print_wall(W) * col_skip, ".", self.print_wall(E)])
 
     @property
     def bot_row(self) -> str:
