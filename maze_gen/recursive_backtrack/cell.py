@@ -52,7 +52,7 @@ class Cell:
         self.visited = True
 
     def print_wall(self, wall: int) -> str:
-        return WALL if self.wall_exists(wall) else " "
+        return WALL if self.wall_exists(wall) else "."
 
     def crash_wall(self, wall: int):
         self.walls -= wall

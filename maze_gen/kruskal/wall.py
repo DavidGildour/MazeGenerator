@@ -18,5 +18,5 @@ class Wall:
         self.broken = True
 
     def __str__(self):
-        return " " if self.broken else "#"
+        return "." if self.broken else "#"
 
