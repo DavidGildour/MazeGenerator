@@ -21,7 +21,7 @@ def main():
     answers = prompt(print_questions)
     if answers["save"]:
         file_name = answers["file_name"] + ".txt"
-        header_text = f"-------- MAZE GENERATED ON {datetime.today()} USING '{alg_name} ALGORITHM' --------"
+        header_text = f"-------- MAZE GENERATED ON {datetime.today()} USING '{alg_name}' ALGORITHM --------"
         fill = len(header_text)
         header = "\n".join([
             "-" * fill,
