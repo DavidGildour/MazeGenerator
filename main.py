@@ -1,20 +1,22 @@
-import sys
+from maze_gen.kruskal.maze import KruskalMaze
+from maze_gen.recursive_backtrack import RecursiveBacktrackMaze
+from prompts import questions, prompt
 
-from maze import Maze
+
+algorithms = {
+    "Kruskal": KruskalMaze,
+    "Recursive Backtracking": RecursiveBacktrackMaze
+}
 
 
 def main():
-    maze_size = input("Specify the size of the maze: ")
-    if not maze_size.isnumeric():
-        print("Wrong input")
-        sys.exit()
-    maze_size = int(maze_size)
-    maze = Maze(maze_size)
-    maze.recursive_backtracking()
-    maze_str = str(maze)
+    answers = prompt(questions)
+    size = answers.get("size")
+    algorithm = algorithms[answers.get("algorithm")]
+    maze = algorithm(size)
+    maze.generate()
 
-    with open("maze.txt", "w") as f:
-        f.writelines(maze_str)
+    print(maze)
 
 
 if __name__ == '__main__':

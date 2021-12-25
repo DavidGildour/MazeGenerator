@@ -1,15 +1,13 @@
 import random as rnd
 
-from cell import Cell, remove_walls
+from maze_gen import Maze
+from maze_gen.recursive_backtrack.cell import Cell, remove_walls
 
 
-class Maze:
+class RecursiveBacktrackMaze(Maze):
+    """A maze generator implementing a recursive backtracking algorithm."""
     def __init__(self, size: int):
-        if not size % 2 or size < 5:
-            raise ValueError(f"In order for the maze pattern to be symmetrical and readable, "
-                             f"the size must be odd and at least 5. Given size: {size}")
-        self.total_grid_size = size
-        self.cell_row_size = size // 2
+        super(RecursiveBacktrackMaze, self).__init__(size)
         self.cells = [
             [Cell(x, y) for x in range(self.cell_row_size)] for y in range(self.cell_row_size)
         ]
@@ -29,7 +27,7 @@ class Maze:
         if self.valid_coordinates(x, y):
             return self.cells[y][x]
 
-    def recursive_backtracking(self):
+    def generate(self):
         start_cell = self.get_cell(0, 0)
         start_cell.mark_visited()
         stack: list[Cell] = [start_cell]
