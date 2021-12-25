@@ -75,7 +75,7 @@ def prompt_question(question: dict, answers: dict):
                 print("You need to specify some value.")
     elif question_type == "bool":
         if default is not None:
-            default_repr = " (Y/n)" if default is True else "(y/N)"
+            default_repr = " (Y/n) " if default is True else "(y/N) "
             msg += default_repr
         while result is None:
             raw_input = input(msg)
