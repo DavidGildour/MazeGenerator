@@ -6,19 +6,26 @@ from maze_gen.recursive_backtrack.cell import Cell, remove_walls
 
 class RecursiveBacktrackMaze(Maze):
     """A maze generator implementing a recursive backtracking algorithm."""
+
     def __init__(self, size: int):
-        super(RecursiveBacktrackMaze, self).__init__(size)
+        super(RecursiveBacktrackMaze, self).__init__(size, "Recursive Backtracking")
         self.cells = [
-            [Cell(x, y) for x in range(self.cell_row_size)] for y in range(self.cell_row_size)
+            [Cell(x, y) for x in range(self.cell_row_size)]
+            for y in range(self.cell_row_size)
         ]
 
     def get_neighbours(self, cell: Cell) -> list[Cell]:
-        return list(filter(lambda c: c and not c.visited, [
-            self.get_cell(cell.x,     cell.y - 1),
-            self.get_cell(cell.x + 1, cell.y),
-            self.get_cell(cell.x,     cell.y + 1),
-            self.get_cell(cell.x - 1, cell.y),
-        ]))
+        return list(
+            filter(
+                lambda c: c and not c.visited,
+                [
+                    self.get_cell(cell.x, cell.y - 1),
+                    self.get_cell(cell.x + 1, cell.y),
+                    self.get_cell(cell.x, cell.y + 1),
+                    self.get_cell(cell.x - 1, cell.y),
+                ],
+            )
+        )
 
     def valid_coordinates(self, x: int, y: int) -> bool:
         return 0 <= x < self.cell_row_size and 0 <= y < self.cell_row_size

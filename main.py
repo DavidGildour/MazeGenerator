@@ -1,13 +1,9 @@
-from datetime import datetime
-
 from maze_gen import KruskalMaze, RecursiveBacktrackMaze
+from maze_printer import save_maze_to_file
 from prompts import init_questions, print_questions, prompt
 
 
-algorithms = {
-    "Kruskal": KruskalMaze,
-    "Recursive Backtracking": RecursiveBacktrackMaze
-}
+algorithms = {"Kruskal": KruskalMaze, "Recursive Backtracking": RecursiveBacktrackMaze}
 
 
 def main():
@@ -21,19 +17,9 @@ def main():
     answers = prompt(print_questions)
     if answers["save"]:
         file_name = answers["file_name"] + ".txt"
-        header_text = f"-------- MAZE GENERATED ON {datetime.today()} USING '{alg_name}' ALGORITHM --------"
-        fill = len(header_text)
-        header = "\n".join([
-            "-" * fill,
-            header_text,
-            "-" * fill,
-            "\n"
-        ])
-        with open(file_name, "w") as f:
-            f.writelines(header)
-            f.writelines(str(maze))
+        save_maze_to_file(maze, file_name)
         print(f"Successfully written a {size}x{size} maze to the file '{file_name}'.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -8,10 +8,12 @@ from maze_gen.kruskal.wall import Wall
 
 class KruskalMaze(Maze):
     """A maze generator implementing a randomized Kruskal's algorithm"""
+
     def __init__(self, size: int):
-        super(KruskalMaze, self).__init__(size)
+        super(KruskalMaze, self).__init__(size, "Kruskal")
         self.cells = [
-            [Cell(x, y) for x in range(self.cell_row_size)] for y in range(self.cell_row_size)
+            [Cell(x, y) for x in range(self.cell_row_size)]
+            for y in range(self.cell_row_size)
         ]
         self.walls = self.generate_walls()
 
