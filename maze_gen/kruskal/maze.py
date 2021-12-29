@@ -41,8 +41,10 @@ class KruskalMaze(Maze):
             if not cell_a.cell_set & cell_b.cell_set:
                 wall.brake()
                 joined = cell_a.cell_set | cell_b.cell_set
-                cell_a.cell_set = joined
-                cell_b.cell_set = joined
+                for cell in cell_a.cell_set:
+                    cell.cell_set = joined
+                for cell in cell_b.cell_set:
+                    cell.cell_set = joined
 
     def __str__(self):
         builder = ["#" * self.total_grid_size]
