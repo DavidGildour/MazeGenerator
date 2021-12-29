@@ -12,7 +12,7 @@ def main():
     alg_name = answers.get("algorithm")
     algorithm = algorithms[alg_name]
     maze = algorithm(size)
-    maze.generate()  # ci trigger
+    maze.generate()
 
     answers = prompt(print_questions)
     if answers["save"]:
