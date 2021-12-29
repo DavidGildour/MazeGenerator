@@ -11,10 +11,7 @@ def generate_header(
     dt: datetime = datetime.today(),
     fill_ch: str = "-",
 ) -> list[str]:
-    header_text = [
-        f"MAZE GENERATED ON {str(dt)[:19]}",
-        f"USING '{alg_name}' ALGORITHM",
-    ]
+    header_text = [f"MAZE GENERATED ON {str(dt)[:19]}", f"USING '{alg_name}' ALGORITHM"]
     if len(" ".join(header_text)) <= max_width - 8:
         header_text = [" ".join(header_text)]
 

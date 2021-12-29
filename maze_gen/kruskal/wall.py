@@ -19,4 +19,3 @@ class Wall:
 
     def __str__(self):
         return "." if self.broken else "#"
-

@@ -8,7 +8,7 @@ W = 0b0001
 
 
 def remove_walls(c1: "Cell", c2: "Cell"):
-    if c1.x > c2.x:    # left > WE
+    if c1.x > c2.x:  # left > WE
         c1.crash_wall(W)
         c2.crash_wall(E)
     elif c1.x < c2.x:  # right > EW

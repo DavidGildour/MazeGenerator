@@ -1,34 +1,34 @@
 init_questions = [
     {
-        'type': 'input_int',
-        'name': 'size',
-        'message': 'Specify the size of the maze:',
-        'validate': lambda x: 5 <= x and x % 2,
-        'validate_message': 'A size must be an odd integer greater than 4.',
-        'default': 51
+        "type": "input_int",
+        "name": "size",
+        "message": "Specify the size of the maze:",
+        "validate": lambda x: 5 <= x and x % 2,
+        "validate_message": "A size must be an odd integer greater than 4.",
+        "default": 51,
     },
     {
-        'type': 'list',
-        'name': 'algorithm',
-        'message': 'Which algorithm do you want to use?',
-        'choices': ['Kruskal', 'Recursive Backtracking']
+        "type": "list",
+        "name": "algorithm",
+        "message": "Which algorithm do you want to use?",
+        "choices": ["Kruskal", "Recursive Backtracking"],
     },
 ]
 
 
 print_questions = [
     {
-        'type': 'bool',
-        'name': 'save',
-        'message': 'Do you want to save the maze to the file?',
-        'default': True
+        "type": "bool",
+        "name": "save",
+        "message": "Do you want to save the maze to the file?",
+        "default": True,
     },
     {
-        'type': 'input',
-        'name': 'file_name',
-        'message': 'Specify the name of the file:',
-        'depends_on': 'save',
-    }
+        "type": "input",
+        "name": "file_name",
+        "message": "Specify the name of the file:",
+        "depends_on": "save",
+    },
 ]
 
 
@@ -119,7 +119,9 @@ def prompt_question(question: dict, answers: dict):
                 if parsed_input in range(1, len(choices) + 1):
                     result = choices[parsed_input - 1]
                 else:
-                    print(f"Your choice must be an integer in range {1}-{len(choices)}.")
+                    print(
+                        f"Your choice must be an integer in range {1}-{len(choices)}."
+                    )
             else:
                 print("The value must be an integer.")
 

@@ -4,4 +4,3 @@ from maze_gen.kruskal import KruskalMaze
 
 
 __all__ = ["Maze", "RecursiveBacktrackMaze", "KruskalMaze"]
-
