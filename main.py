@@ -1,9 +1,13 @@
-from maze_gen import KruskalMaze, RecursiveBacktrackMaze
+from maze_gen import KruskalMaze, RecursiveBacktrackMaze, PrimMaze
 from maze_printer import save_maze_to_file
 from prompts import init_questions, print_questions, prompt
 
 
-algorithms = {"Kruskal": KruskalMaze, "Recursive Backtracking": RecursiveBacktrackMaze}
+algorithms = {
+    "Kruskal": KruskalMaze,
+    "Recursive Backtracking": RecursiveBacktrackMaze,
+    "Prim": PrimMaze,
+}
 
 
 def main():
