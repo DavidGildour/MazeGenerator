@@ -13,6 +13,7 @@ def main():
     algorithm = algorithms[alg_name]
     maze = algorithm(size)
     maze.generate()
+    print(maze)
 
     answers = prompt(print_questions)
     if answers["save"]:
