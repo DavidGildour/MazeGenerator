@@ -7,7 +7,7 @@ algorithms = {
     "Kruskal": KruskalMaze,
     "Recursive Backtracking": RecursiveBacktrackMaze,
     "Prim": PrimMaze,
-    "Mazecetric (Cellular Automaton)": MazecetricMaze,
+    "Mazecetric": MazecetricMaze,
 }
 
 

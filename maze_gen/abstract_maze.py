@@ -13,4 +13,4 @@ class Maze(ABC):
         self.cell_row_size = size // 2
 
     def generate(self):
-        raise NotImplemented
+        raise NotImplementedError
