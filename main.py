@@ -1,4 +1,4 @@
-from maze_gen import KruskalMaze, RecursiveBacktrackMaze, PrimMaze
+from maze_gen import KruskalMaze, RecursiveBacktrackMaze, PrimMaze, MazecetricMaze
 from maze_printer import save_maze_to_file
 from prompts import init_questions, print_questions, prompt
 
@@ -7,6 +7,7 @@ algorithms = {
     "Kruskal": KruskalMaze,
     "Recursive Backtracking": RecursiveBacktrackMaze,
     "Prim": PrimMaze,
+    "Mazecetric (Cellular Automaton)": MazecetricMaze,
 }
 
 
