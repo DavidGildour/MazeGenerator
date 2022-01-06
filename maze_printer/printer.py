@@ -26,7 +26,6 @@ def prepare_maze(maze: Maze) -> list[str]:
     maze_rows = maze_str.split("\n")
     maze_size = maze.total_grid_size
     max_digits = floor(log(maze_size, 10)) + 1
-    total_line_length = (max_digits + 5) * 2 + maze_size
 
     def format_row_num(_i: int, left: bool = True) -> str:
         checkbox = "[ ]"
@@ -47,20 +46,21 @@ def prepare_maze(maze: Maze) -> list[str]:
 
         return " ".join(builder)
 
-    def generate_col_enum(top: bool = True):
+    def generate_col_enum(top: bool = True) -> list[str]:
         pad = ">" if top else "<"
+        total_line_length = (max_digits + 5) * 2 + maze_size * 2
         col_fmt_str = f"{{:^{total_line_length}}}"
         col_enum_rows = [[] for _ in range(max_digits)]
         for i in range(maze_size):
             if i != maze_size - 1 and i % 5:
                 for col in col_enum_rows:
-                    col.append(" ")
+                    col.append("  ")
             else:
                 i_fmt_str = f"{{:{pad}{max_digits}}}"
                 str_i = i_fmt_str.format(i)
 
                 for j, ch in enumerate(str_i):
-                    col_enum_rows[j].append(ch)
+                    col_enum_rows[j].append(ch + " ")
 
         return [col_fmt_str.format("".join(col_enum)) for col_enum in col_enum_rows]
 
@@ -68,7 +68,7 @@ def prepare_maze(maze: Maze) -> list[str]:
     bot_col_enum = generate_col_enum(top=False)
 
     formatted_rows = [
-        " ".join([format_row_num(i), row, format_row_num(i, left=False)])
+        " ".join([format_row_num(i), " ".join(row), format_row_num(i, left=False)])
         for i, row in enumerate(maze_rows)
     ]
     return top_col_enum + formatted_rows + bot_col_enum
