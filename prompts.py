@@ -11,7 +11,7 @@ init_questions = [
         "type": "list",
         "name": "algorithm",
         "message": "Which algorithm do you want to use?",
-        "choices": ["Kruskal", "Recursive Backtracking", "Prim"],
+        "choices": ["Kruskal", "Recursive Backtracking", "Prim", "Wilson"],
     },
 ]
 
