@@ -15,7 +15,10 @@ class Cell:
         self.coor = (x, y)
 
     def __str__(self):
-        return "#" if self.is_alive else "."
+        return "." if self.is_alive else "#"
+
+    def __bool__(self):
+        return self.is_alive
 
 
 class RuleSet:
@@ -42,16 +45,16 @@ class Board:
                 if 0 < x < self.board_side - 1 and 0 < y < self.board_side - 1:
                     self.cells[y].append(Cell(x, y, random() <= alive_chance))
                 else:
-                    # side walls are always alive
-                    self.cells[y].append(Cell(x, y, True))
+                    # side walls are always dead
+                    self.cells[y].append(Cell(x, y, False))
 
     def __iter__(self):
         return iter(self.cells)
 
-    def get_cell(self, x: int, y: int) -> Cell:
-        if x < 0 or y < 0:
-            raise IndexError("Cannot lookup negative indices.")
-        return self.cells[y][x]
+    def get_cell(self, x: int, y: int) -> Cell or None:
+        if self.board_side > x >= 0 and self.board_side > y >= 0:
+            return self.cells[y][x]
+        return None
 
     def set_cell(self, x: int, y: int, alive: bool):
         self.cells[y][x] = Cell(x, y, alive)
