@@ -4,6 +4,7 @@ from maze_gen import (
     PrimMaze,
     WilsonMaze,
     RecursiveDivisionMaze,
+    MazecetricMaze,
 )
 from maze_printer import save_maze_to_file
 from prompts import init_questions, print_questions, prompt
@@ -13,6 +14,7 @@ algorithms = {
     "Kruskal": KruskalMaze,
     "Recursive Backtracking": RecursiveBacktrackMaze,
     "Prim": PrimMaze,
+    "Mazecetric": MazecetricMaze,
     "Wilson": WilsonMaze,
     "Recursive Division": RecursiveDivisionMaze,
 }

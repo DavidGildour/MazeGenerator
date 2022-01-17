@@ -15,6 +15,7 @@ init_questions = [
             "Kruskal",
             "Recursive Backtracking",
             "Prim",
+            "Mazecetric",
             "Wilson",
             "Recursive Division",
         ],
