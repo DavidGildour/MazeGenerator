@@ -6,7 +6,6 @@ from maze_gen.kruskal import KruskalMaze
 from maze_gen.wilson import WilsonMaze
 from maze_gen.recursive_division import RecursiveDivisionMaze
 
-
 __all__ = [
     "Maze",
     "RecursiveBacktrackMaze",
