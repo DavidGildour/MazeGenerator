@@ -3,7 +3,6 @@ import random
 from maze_gen import Maze
 from maze_gen.recursive_division.wall import Wall
 
-
 Chamber = tuple[tuple[int, int], tuple[int, int]]
 Orientation = int
 
